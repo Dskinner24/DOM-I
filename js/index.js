@@ -40,3 +40,78 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// Step 1: Get the rest of the images on the webPage
+let ctaImg = document.getElementById('cta-img');
+ctaImg.setAttribute('src', siteContent['cta']['img-src'])
+
+let mdlImg = document.getElementById('middle-img');
+mdlImg.setAttribute('src', siteContent['main-content']['middle-img-src'])
+
+// Step 2: Creating the Navigation Bar
+const navigation = document.querySelectorAll('nav a');
+
+navigation.forEach((element, index) => {
+  element.textContent = siteContent['nav'][`nav-item-${index + 1}`];
+
+  element.style.color = 'green';
+});
+
+// Step 3: Create More Navigation Items
+const navBar = document.querySelector('nav')
+
+const makeNew1 = document.createElement('a');
+const newText1 = document.createTextNode('Learn');
+const makeNew2 = document.createElement('a');
+
+navBar.appendChild(makeNew1).appendChild(newText1);
+makeNew1.style.color = 'green';
+
+navBar.prepend(makeNew2);
+makeNew2.textContent = 'Home';
+makeNew2.style.color = 'green';
+
+
+// Step 4: Add Header
+const head1 = document.querySelector('h1');
+head1.textContent = siteContent['cta']['h1'];
+
+const butt = document.querySelector('button');
+butt.textContent = siteContent['cta']['button'];
+
+// Step 5: Adding the middle content
+const topContentHeaders = document.querySelectorAll('.top-content h4');
+
+topContentHeaders[0].textContent = siteContent['main-content']['features-h4'];
+topContentHeaders[1].textContent = siteContent['main-content']['about-h4'];
+
+const topContentText = document.querySelectorAll('.top-content p');
+
+topContentText[0].textContent = siteContent['main-content']['features-content'];
+topContentText[1].textContent = siteContent['main-content']['about-content'];
+
+const bottomContentHeaders = document.querySelectorAll('.bottom-content h4');
+
+bottomContentHeaders[0].textContent = siteContent['main-content']['services-h4'];
+bottomContentHeaders[1].textContent = siteContent['main-content']['product-h4'];
+bottomContentHeaders[2].textContent = siteContent['main-content']['vision-h4'];
+
+const bottomContentText = document.querySelectorAll('.bottom-content p');
+
+bottomContentText[0].textContent = siteContent['main-content']['services-content'];
+bottomContentText[1].textContent = siteContent['main-content']['product-content'];
+bottomContentText[2].textContent = siteContent['main-content']['vision-content'];
+
+// Step 6: Adding the contact elements
+const contactHead = document.querySelector('.contact h4');
+contactHead.textContent = siteContent['contact']['contact-h4'];
+
+const contactMiddle = document.querySelectorAll('.contact p');
+
+contactMiddle[0].textContent = siteContent['contact']['address'];
+contactMiddle[1].textContent = siteContent['contact']['phone'];
+contactMiddle[2].textContent = siteContent['contact']['email'];
+
+// Step 7: Adding the footer
+const foot = document.querySelector('footer p');
+foot.textContent = siteContent['footer']['copyright'];
